@@ -181,12 +181,26 @@ with col2:
         st.success("Combinaciones listas 🎉")
         st.balloons()
 
-        # ---------------- AQUI CONECTAS TU LOGICA ----------------
-        # Reemplaza esto por tu sistema real
-        resultados = [
-            [5, 12, 18, 24, 33, 40],
-            [3, 9, 15, 27, 31, 44],
-            [1, 7, 19, 22, 36, 41]
+      
+import random
+
+def generar_combinaciones(cantidad, rango_suma):
+    combinaciones = []
+
+    while len(combinaciones) < cantidad:
+        nums = sorted(random.sample(range(1, 57), 6))
+        suma = sum(nums)
+
+        if rango_suma[0] <= suma <= rango_suma[1]:
+            combinaciones.append(nums)
+
+    return combinaciones
+
+
+resultados = generar_combinaciones(
+    cantidad,
+    rango_suma
+)
         ]
 
         resultados_con_modo = [(r, modo) for r in resultados]
